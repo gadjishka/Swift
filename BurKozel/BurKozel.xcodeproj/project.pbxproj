@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		324087C3299FCAF800F110C6 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324087C2299FCAF800F110C6 /* StartViewController.swift */; };
 		32F2449D299DF716006AF7EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F2449C299DF716006AF7EA /* AppDelegate.swift */; };
 		32F2449F299DF716006AF7EA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F2449E299DF716006AF7EA /* SceneDelegate.swift */; };
 		32F244A1299DF716006AF7EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F244A0299DF716006AF7EA /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		324087C2299FCAF800F110C6 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		32F24499299DF716006AF7EA /* BurKozel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BurKozel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F2449C299DF716006AF7EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32F2449E299DF716006AF7EA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				32F2449C299DF716006AF7EA /* AppDelegate.swift */,
 				32F2449E299DF716006AF7EA /* SceneDelegate.swift */,
 				32F244A0299DF716006AF7EA /* ViewController.swift */,
+				324087C2299FCAF800F110C6 /* StartViewController.swift */,
 				32F244A2299DF716006AF7EA /* Main.storyboard */,
 				32F244A5299DF717006AF7EA /* Assets.xcassets */,
 				32F244A7299DF717006AF7EA /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32F244A1299DF716006AF7EA /* ViewController.swift in Sources */,
+				324087C3299FCAF800F110C6 /* StartViewController.swift in Sources */,
 				32F2449D299DF716006AF7EA /* AppDelegate.swift in Sources */,
 				32F2449F299DF716006AF7EA /* SceneDelegate.swift in Sources */,
 			);

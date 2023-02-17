@@ -9,95 +9,133 @@ import UIKit
 
 class ViewController: UIViewController {
 
-  
-    @IBOutlet weak var gadjiLastScore: UILabel!
-    @IBOutlet weak var gadjiCurScore: UILabel!
-    @IBOutlet weak var gadjiText: UITextField!
+
+    @IBOutlet weak var playerOneName: UILabel!
+    @IBOutlet weak var playerTwoName: UILabel!
+    @IBOutlet weak var playerThreeName: UILabel!
+    @IBOutlet weak var playerFourName: UILabel!
     
-    @IBOutlet weak var tasyaLastScore: UILabel!
-    @IBOutlet weak var tasyaCurScore: UILabel!
-    @IBOutlet weak var tasyaText: UITextField!
+    @IBOutlet weak var playerOneScore: UILabel!
+    @IBOutlet weak var playerOneText: UITextField!
     
-    @IBOutlet weak var sergayLastScore: UILabel!
-    @IBOutlet weak var sergayCurScore: UILabel!
-    @IBOutlet weak var sergayText: UITextField!
+    @IBOutlet weak var playerTwoScore: UILabel!
+    @IBOutlet weak var playerTwoText: UITextField!
     
-    @IBOutlet weak var natashaLastScore: UILabel!
-    @IBOutlet weak var natashaCurScore: UILabel!
-    @IBOutlet weak var natashaText: UITextField!
+    @IBOutlet weak var playerThreeScore: UILabel!
+    @IBOutlet weak var playerThreeText: UITextField!
+    
+    @IBOutlet weak var playerFourScore: UILabel!
+    @IBOutlet weak var playerFourText: UITextField!
     
     @IBOutlet weak var winnerLabel: UILabel!
     
     @IBOutlet weak var loserLabel: UILabel!
+    
+    var playerOneVar: String!
+    var playerTwoVar: String!
+    var playerThreeVar: String!
+    var playerFourVar: String!
+    var isGameOver: Bool = false
+    var lead: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         winnerLabel.isHidden = true
         loserLabel.isHidden = true
+        playerOneName.text = "\(playerOneVar ?? "")"
+        playerTwoName.text = "\(playerTwoVar ?? "")"
+        playerThreeName.text = "\(playerThreeVar ?? "")"
+        playerFourName.text = "\(playerFourVar ?? "")"
         // Do any additional setup after loading the view.
     }
 
-    func endGame() {
-        gadjiLastScore.text = "0"
-        gadjiCurScore.text = "0"
-        tasyaLastScore.text = "0"
-        tasyaCurScore.text = "0"
-        sergayLastScore.text = "0"
-        sergayCurScore.text = "0"
-        natashaLastScore.text = "0"
-        natashaCurScore.text = "0"
-    }
-    
     @IBAction func resultButton() {
-        gadjiLastScore.text = gadjiCurScore.text
-        tasyaLastScore.text = tasyaCurScore.text
-        sergayLastScore.text = sergayCurScore.text
-        natashaLastScore.text = natashaCurScore.text
+        guard let firstText = playerOneText.text, let secondText = playerTwoText.text,
+              let thirdText = playerThreeText.text, let fourthText = playerFourText.text else {return}
         
-        var gadji = (Int(gadjiCurScore.text!)!)
-        gadji += (Int(gadjiText.text!)!)
-        gadjiCurScore.text = String(gadji)
-        
-        var tasya = (Int(tasyaCurScore.text!)!)
-        tasya += (Int(tasyaText.text!)!)
-        tasyaCurScore.text = String(tasya)
-        
-        var sergay = (Int(sergayCurScore.text!)!)
-        sergay += (Int(sergayText.text!)!)
-        sergayCurScore.text = String(sergay)
-        
-        var natasha = (Int(natashaCurScore.text!)!)
-        natasha += (Int(natashaText.text!)!)
-        natashaCurScore.text = String(natasha)
-        
-        gadjiText.text = ""
-        tasyaText.text = ""
-        sergayText.text = ""
-        natashaText.text = ""
-        
-        if Int(gadjiCurScore.text!)! >= 31 {
-            loserLabel.isHidden = false
-            loserLabel.text = "Гаджи Проиграл!"
-        }
-        if Int(tasyaCurScore.text!)! >= 31 {
-            loserLabel.isHidden = false
-            loserLabel.text = "Тася Проиграла!"
-        }
-        if Int(sergayCurScore.text!)! >= 31 {
-            loserLabel.isHidden = false
-            loserLabel.text = "Сергей Проиграл!"
-        }
-        if Int(natashaCurScore.text!)! >= 31 {
-            loserLabel.isHidden = false
-            loserLabel.text = "Наташа Проиграла!"
+        if isGameOver {
+                showAlert(title: "Игра закончена",
+                          message: "\(lead ?? "Тась"), может начнешь заново?")
+            return
         }
         
+        if firstText.isEmpty || secondText.isEmpty || thirdText.isEmpty || fourthText.isEmpty {
+            showAlert(title: "Не заполнено",
+                      message: "\(lead ?? "Тась"), может все заполнишь?")
+            return
+        }
+        
+        
+        var playerOne = (Int(playerOneScore.text!)!)
+        playerOne += (Int(playerOneText.text!)!)
+        playerOneScore.text = String(playerOne)
+        
+        var playerTwo = (Int(playerTwoScore.text!)!)
+        playerTwo += (Int(playerTwoText.text!)!)
+        playerTwoScore.text = String(playerTwo)
+        
+        var playerThree = (Int(playerThreeScore.text!)!)
+        playerThree += (Int(playerThreeText.text!)!)
+        playerThreeScore.text = String(playerThree)
+        
+        var playerFour = (Int(playerFourScore.text!)!)
+        playerFour += (Int(playerFourText.text!)!)
+        playerFourScore.text = String(playerFour)
+        
+        playerOneText.text = ""
+        playerTwoText.text = ""
+        playerThreeText.text = ""
+        playerFourText.text = ""
+        
+        exLooser ()
         
     }
     
     @IBAction func againButton() {
-        endGame()
+        repeatGame()
     }
     
+    private func exLooser() {
+        if Int(playerOneScore.text!)! >= 31 {
+            loserLabel.isHidden = false
+            loserLabel.text = "\(playerOneVar ?? "") Проиграл!"
+            isGameOver = true
+        }
+        if Int(playerTwoScore.text!)! >= 31 {
+            loserLabel.isHidden = false
+            loserLabel.text = "\(playerTwoVar ?? "") Проиграла!"
+            isGameOver = true
+        }
+        if Int(playerThreeScore.text!)! >= 31 {
+            loserLabel.isHidden = false
+            loserLabel.text = "\(playerThreeVar ?? "") Проиграл!"
+            isGameOver = true
+        }
+        if Int(playerFourScore.text!)! >= 31 {
+            loserLabel.isHidden = false
+            loserLabel.text = "\(playerFourVar ?? "") Проиграла!"
+            isGameOver = true
+        }
+    }
+    
+    private func repeatGame() {
+        playerOneScore.text = "0"
+        playerTwoScore.text = "0"
+        playerThreeScore.text = "0"
+        playerFourScore.text = "0"
+        winnerLabel.isHidden = true
+        loserLabel.isHidden = true
+    }
+    
+}
+
+extension ViewController {
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
 }
 
 extension ViewController: UITextFieldDelegate {
@@ -107,14 +145,14 @@ extension ViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == gadjiText {
-            tasyaText.becomeFirstResponder()
+        if textField == playerOneText {
+            playerTwoText.becomeFirstResponder()
         }
-        else if textField == tasyaText {
-            sergayText.becomeFirstResponder()
+        else if textField == playerTwoText {
+            playerThreeText.becomeFirstResponder()
         }
-        else if textField == sergayText {
-            natashaText.becomeFirstResponder()
+        else if textField == playerThreeText {
+            playerFourText.becomeFirstResponder()
         }
         else {
             resultButton()
