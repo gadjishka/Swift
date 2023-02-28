@@ -96,27 +96,44 @@ class ViewController: UIViewController {
     }
     
     private func exLooser() {
-        if Int(playerOneScore.text!)! >= 31 {
-            loserLabel.isHidden = false
-            loserLabel.text = "\(playerOneVar ?? "") Проиграл!"
-            isGameOver = true
+        var loser = max(Int(playerOneScore.text!)!, max(Int(playerTwoScore.text!)!,
+                                                        max(Int(playerThreeScore.text!)!, Int(playerFourScore.text!)!)))
+        loserLabel.isHidden = false
+        
+        switch loser {
+        case Int(playerOneScore.text!)!:
+            loserLabel.text = "\(playerOneVar ?? "") Проиграл(a)!"
+        case Int(playerTwoScore.text!)!:
+            loserLabel.text = "\(playerTwoVar ?? "") Проиграл(a)!"
+        case Int(playerThreeScore.text!)!:
+            loserLabel.text = "\(playerThreeVar ?? "") Проиграл(a)!"
+        case Int(playerFourScore.text!)!:
+            loserLabel.text = "\(playerFourVar ?? "") Проиграл(a)!"
+        default:
+            loserLabel.text = "Хз кто Проиграл!"
         }
-        if Int(playerTwoScore.text!)! >= 31 {
-            loserLabel.isHidden = false
-            loserLabel.text = "\(playerTwoVar ?? "") Проиграла!"
-            isGameOver = true
+        
+        var winner = min(Int(playerOneScore.text!)!, min(Int(playerTwoScore.text!)!,
+                                                        min(Int(playerThreeScore.text!)!, Int(playerFourScore.text!)!)))
+        winnerLabel.isHidden = false
+        
+        switch winner {
+        case Int(playerOneScore.text!)!:
+            winnerLabel.text = "\(playerOneVar ?? "")  Выиграл(a)!"
+        case Int(playerTwoScore.text!)!:
+            winnerLabel.text = "\(playerTwoVar ?? "") Выиграл(a)!"
+        case Int(playerThreeScore.text!)!:
+            winnerLabel.text = "\(playerThreeVar ?? "") Выиграл(a)!"
+        case Int(playerFourScore.text!)!:
+            winnerLabel.text = "\(playerFourVar ?? "") Выиграл(a)!"
+        default:
+            winnerLabel.text = "Хз кто Выиграл!"
         }
-        if Int(playerThreeScore.text!)! >= 31 {
-            loserLabel.isHidden = false
-            loserLabel.text = "\(playerThreeVar ?? "") Проиграл!"
-            isGameOver = true
-        }
-        if Int(playerFourScore.text!)! >= 31 {
-            loserLabel.isHidden = false
-            loserLabel.text = "\(playerFourVar ?? "") Проиграла!"
-            isGameOver = true
-        }
+        
+        isGameOver = true
     }
+    
+    
     
     private func repeatGame() {
         playerOneScore.text = "0"
@@ -125,6 +142,7 @@ class ViewController: UIViewController {
         playerFourScore.text = "0"
         winnerLabel.isHidden = true
         loserLabel.isHidden = true
+        isGameOver = false
     }
     
 }
