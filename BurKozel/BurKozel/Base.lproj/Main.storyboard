@@ -187,44 +187,104 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="53" translatesAutoresizingMaskIntoConstraints="NO" id="h2b-kP-c6e">
+                                <rect key="frame" x="184" y="193" width="10.5" height="241"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2D-PJ-GJB">
+                                        <rect key="frame" x="0.0" y="0.0" width="10.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4o-LQ-R2Q">
+                                        <rect key="frame" x="0.0" y="73.5" width="10.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2y-ya-BNc">
+                                        <rect key="frame" x="0.0" y="147" width="10.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImB-9G-xeQ">
+                                        <rect key="frame" x="0.0" y="220.5" width="10.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Победы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xF-U1-Gzk">
+                                <rect key="frame" x="163" y="157.5" width="53" height="27.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="53" id="VCd-4Z-AD3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Счет" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PwE-vx-p11">
+                                <rect key="frame" x="97" y="157.5" width="32.5" height="27.5"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGrayColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ajg-Xq-ylu" secondAttribute="bottom" constant="137" id="1hJ-CP-9Id"/>
+                            <constraint firstItem="xcl-2Y-nGA" firstAttribute="leading" relation="lessThanOrEqual" secondItem="h2b-kP-c6e" secondAttribute="trailing" constant="47.5" id="2Ss-jZ-EA5"/>
                             <constraint firstItem="Ajg-Xq-ylu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3WU-GK-iry"/>
+                            <constraint firstItem="5xF-U1-Gzk" firstAttribute="centerY" secondItem="PwE-vx-p11" secondAttribute="centerY" id="6Un-tM-nXu"/>
                             <constraint firstItem="aH1-X8-QA4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6fd-1g-pII"/>
                             <constraint firstItem="4kS-d0-kQ2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8zd-e6-9GY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xcl-2Y-nGA" secondAttribute="trailing" constant="75" id="BwW-z0-T8J"/>
+                            <constraint firstItem="PwE-vx-p11" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="97" id="K30-KP-4hc"/>
+                            <constraint firstItem="hei-1U-ZoZ" firstAttribute="centerX" secondItem="PwE-vx-p11" secondAttribute="centerX" id="LLe-VR-xZF"/>
                             <constraint firstItem="4kS-d0-kQ2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aH1-X8-QA4" secondAttribute="leading" id="NrJ-Uc-2E5"/>
+                            <constraint firstItem="5xF-U1-Gzk" firstAttribute="baseline" secondItem="PwE-vx-p11" secondAttribute="baseline" id="QuW-a5-LA1"/>
+                            <constraint firstItem="h2b-kP-c6e" firstAttribute="leading" relation="lessThanOrEqual" secondItem="hei-1U-ZoZ" secondAttribute="trailing" constant="65.5" id="TcF-Mh-UEF"/>
                             <constraint firstItem="hei-1U-ZoZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="145" id="Ud0-Bg-CTe"/>
                             <constraint firstItem="4kS-d0-kQ2" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aH1-X8-QA4" secondAttribute="trailing" id="a01-e1-zq6"/>
                             <constraint firstItem="aH1-X8-QA4" firstAttribute="top" secondItem="4kS-d0-kQ2" secondAttribute="bottom" constant="28" id="ak3-1Y-aH7"/>
+                            <constraint firstItem="xcl-2Y-nGA" firstAttribute="leading" secondItem="h2b-kP-c6e" secondAttribute="trailing" constant="47.5" id="cix-Ja-Rgu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hTR-X9-oXh" secondAttribute="trailing" constant="272" id="cws-Xg-9mO"/>
                             <constraint firstItem="4kS-d0-kQ2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eJN-og-qO1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5xF-U1-Gzk" secondAttribute="trailing" id="eWT-0o-3jN"/>
                             <constraint firstItem="hTR-X9-oXh" firstAttribute="leading" secondItem="fCh-jh-dRO" secondAttribute="leading" id="fhw-mI-vhn"/>
                             <constraint firstItem="fCh-jh-dRO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="139" id="hTN-wZ-Vum"/>
                             <constraint firstItem="xcl-2Y-nGA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="139" id="hvZ-UV-8Qh"/>
                             <constraint firstAttribute="bottom" secondItem="4kS-d0-kQ2" secondAttribute="bottom" constant="324" id="jS6-KJ-Ehj"/>
                             <constraint firstItem="hei-1U-ZoZ" firstAttribute="leading" secondItem="fCh-jh-dRO" secondAttribute="trailing" constant="18" id="lKc-DC-Bgw"/>
                             <constraint firstItem="hTR-X9-oXh" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="nx1-ZE-zFE"/>
+                            <constraint firstItem="5xF-U1-Gzk" firstAttribute="baseline" secondItem="PwE-vx-p11" secondAttribute="firstBaseline" id="ocL-di-2zF"/>
+                            <constraint firstItem="5xF-U1-Gzk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PwE-vx-p11" secondAttribute="trailing" id="oln-9G-qmx"/>
+                            <constraint firstItem="5xF-U1-Gzk" firstAttribute="centerX" secondItem="h2b-kP-c6e" secondAttribute="centerX" id="pNk-2v-uzT"/>
                             <constraint firstItem="fCh-jh-dRO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="pQV-rw-dSX"/>
-                            <constraint firstItem="xcl-2Y-nGA" firstAttribute="leading" relation="lessThanOrEqual" secondItem="hei-1U-ZoZ" secondAttribute="trailing" constant="130.5" id="s1z-q9-VIN"/>
+                            <constraint firstItem="h2b-kP-c6e" firstAttribute="top" secondItem="5xF-U1-Gzk" secondAttribute="bottom" constant="8" symbolic="YES" id="sP3-0V-PVL"/>
+                            <constraint firstItem="hei-1U-ZoZ" firstAttribute="top" secondItem="PwE-vx-p11" secondAttribute="bottom" constant="8" symbolic="YES" id="tHI-zJ-4UG"/>
                             <constraint firstItem="Ajg-Xq-ylu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="154.5" id="wvE-5h-EtQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hpq-tY-ioe"/>
                     <connections>
                         <outlet property="loserLabel" destination="aH1-X8-QA4" id="Bl6-xT-oZ5"/>
+                        <outlet property="playerFourCountWins" destination="ImB-9G-xeQ" id="GbP-BH-4xF"/>
                         <outlet property="playerFourName" destination="cVA-k8-gRc" id="aQm-kh-gSP"/>
                         <outlet property="playerFourScore" destination="ZS1-iP-Djh" id="UT4-mO-CAN"/>
                         <outlet property="playerFourText" destination="cBy-MO-8Fw" id="SGi-y8-dEx"/>
+                        <outlet property="playerOneCountWins" destination="T2D-PJ-GJB" id="vtE-OH-wWa"/>
                         <outlet property="playerOneName" destination="yRX-0F-EwL" id="VDT-pr-9xz"/>
                         <outlet property="playerOneScore" destination="DmT-2C-mlI" id="u1N-oC-1gU"/>
                         <outlet property="playerOneText" destination="Fgn-s8-kXj" id="4Ps-Vu-mWX"/>
+                        <outlet property="playerThreeCountWins" destination="r2y-ya-BNc" id="EC7-Cg-Ph6"/>
                         <outlet property="playerThreeName" destination="8Of-98-soi" id="Fqb-Rm-szV"/>
                         <outlet property="playerThreeScore" destination="Pex-fo-VKV" id="73A-Yf-SBG"/>
                         <outlet property="playerThreeText" destination="eXM-jz-1VF" id="R65-8a-MlE"/>
+                        <outlet property="playerTwoCountWins" destination="V4o-LQ-R2Q" id="RaX-7q-n1c"/>
                         <outlet property="playerTwoName" destination="iqq-hH-BpQ" id="ulN-FN-Oug"/>
                         <outlet property="playerTwoScore" destination="BIL-cr-49B" id="AJ6-y1-qj9"/>
                         <outlet property="playerTwoText" destination="YCA-rt-5wf" id="ASo-Dm-JMq"/>

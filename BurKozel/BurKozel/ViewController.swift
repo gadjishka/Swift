@@ -27,6 +27,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var playerFourScore: UILabel!
     @IBOutlet weak var playerFourText: UITextField!
     
+    
+    @IBOutlet weak var playerOneCountWins: UILabel!
+    @IBOutlet weak var playerTwoCountWins: UILabel!
+    @IBOutlet weak var playerThreeCountWins: UILabel!
+    @IBOutlet weak var playerFourCountWins: UILabel!
+    
+    
+    
+
+    
+    
+    
+    
     @IBOutlet weak var winnerLabel: UILabel!
     
     @IBOutlet weak var loserLabel: UILabel!
@@ -37,6 +50,7 @@ class ViewController: UIViewController {
     var playerFourVar: String!
     var isGameOver: Bool = false
     var lead: String!
+    var wins = [0, 0, 0, 0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +60,10 @@ class ViewController: UIViewController {
         playerTwoName.text = "\(playerTwoVar ?? "")"
         playerThreeName.text = "\(playerThreeVar ?? "")"
         playerFourName.text = "\(playerFourVar ?? "")"
+        playerOneText.keyboardType = .numberPad
+        playerTwoText.keyboardType = .numberPad
+        playerThreeText.keyboardType = .numberPad
+        playerFourText.keyboardType = .numberPad
         // Do any additional setup after loading the view.
     }
 
@@ -57,7 +75,7 @@ class ViewController: UIViewController {
                 showAlert(title: "Игра закончена",
                           message: "\(lead ?? "Тась"), может начнешь заново?")
             return
-        }
+        };
         
         if firstText.isEmpty || secondText.isEmpty || thirdText.isEmpty || fourthText.isEmpty {
             showAlert(title: "Не заполнено",
@@ -96,41 +114,55 @@ class ViewController: UIViewController {
     }
     
     private func exLooser() {
-        var loser = max(Int(playerOneScore.text!)!, max(Int(playerTwoScore.text!)!,
+        let loser = max(Int(playerOneScore.text!)!, max(Int(playerTwoScore.text!)!,
                                                         max(Int(playerThreeScore.text!)!, Int(playerFourScore.text!)!)))
-        loserLabel.isHidden = false
-        
-        switch loser {
-        case Int(playerOneScore.text!)!:
-            loserLabel.text = "\(playerOneVar ?? "") Проиграл(a)!"
-        case Int(playerTwoScore.text!)!:
-            loserLabel.text = "\(playerTwoVar ?? "") Проиграл(a)!"
-        case Int(playerThreeScore.text!)!:
-            loserLabel.text = "\(playerThreeVar ?? "") Проиграл(a)!"
-        case Int(playerFourScore.text!)!:
-            loserLabel.text = "\(playerFourVar ?? "") Проиграл(a)!"
-        default:
-            loserLabel.text = "Хз кто Проиграл!"
+        if loser >= 31 {
+            
+            switch loser {
+            case Int(playerOneScore.text!)!:
+                loserLabel.text = "\(playerOneVar ?? "") Проиграл(a)!"
+            case Int(playerTwoScore.text!)!:
+                loserLabel.text = "\(playerTwoVar ?? "") Проиграл(a)!"
+            case Int(playerThreeScore.text!)!:
+                loserLabel.text = "\(playerThreeVar ?? "") Проиграл(a)!"
+            case Int(playerFourScore.text!)!:
+                loserLabel.text = "\(playerFourVar ?? "") Проиграл(a)!"
+            default:
+                loserLabel.text = "Хз кто Проиграл!"
+            }
+            
+            
+            loserLabel.isHidden = false
+            winnerLabel.isHidden = false
+            isGameOver = true
+            
+            
+            let winner = min(Int(playerOneScore.text!)!, min(Int(playerTwoScore.text!)!,
+                                                             min(Int(playerThreeScore.text!)!, Int(playerFourScore.text!)!)))
+            
+            
+            switch winner {
+            case Int(playerOneScore.text!)!:
+                winnerLabel.text = "\(playerOneVar ?? "")  Выиграл(a)!"
+                wins[0] += 1
+                playerOneCountWins.text = "\(wins[0])"
+            case Int(playerTwoScore.text!)!:
+                winnerLabel.text = "\(playerTwoVar ?? "") Выиграл(a)!"
+                wins[1] += 1
+                playerTwoCountWins.text = "\(wins[1])"
+            case Int(playerThreeScore.text!)!:
+                winnerLabel.text = "\(playerThreeVar ?? "") Выиграл(a)!"
+                wins[2] += 1
+                playerThreeCountWins.text = "\(wins[2])"
+            case Int(playerFourScore.text!)!:
+                winnerLabel.text = "\(playerFourVar ?? "") Выиграл(a)!"
+                wins[3] += 1
+                playerFourCountWins.text = "\(wins[3])"
+            default:
+                winnerLabel.text = "Хз кто Выиграл!"
+            }
         }
         
-        var winner = min(Int(playerOneScore.text!)!, min(Int(playerTwoScore.text!)!,
-                                                        min(Int(playerThreeScore.text!)!, Int(playerFourScore.text!)!)))
-        winnerLabel.isHidden = false
-        
-        switch winner {
-        case Int(playerOneScore.text!)!:
-            winnerLabel.text = "\(playerOneVar ?? "")  Выиграл(a)!"
-        case Int(playerTwoScore.text!)!:
-            winnerLabel.text = "\(playerTwoVar ?? "") Выиграл(a)!"
-        case Int(playerThreeScore.text!)!:
-            winnerLabel.text = "\(playerThreeVar ?? "") Выиграл(a)!"
-        case Int(playerFourScore.text!)!:
-            winnerLabel.text = "\(playerFourVar ?? "") Выиграл(a)!"
-        default:
-            winnerLabel.text = "Хз кто Выиграл!"
-        }
-        
-        isGameOver = true
     }
     
     
@@ -149,7 +181,7 @@ class ViewController: UIViewController {
 
 extension ViewController {
     private func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         let okAction = UIAlertAction(title: "OK", style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)

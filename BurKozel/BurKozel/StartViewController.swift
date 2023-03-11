@@ -17,7 +17,7 @@ class StartViewController: UIViewController {
     @IBOutlet weak var leadTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        leadTextField.keyboardType = .numberPad
         // Do any additional setup after loading the view.
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
